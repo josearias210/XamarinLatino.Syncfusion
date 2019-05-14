@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:XamarinLatino.Syncfusion"
+             xmlns:vm="clr-namespace:XamarinLatino.Syncfusion.ViewModels"
+             xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
+             x:Class="XamarinLatino.Syncfusion.MainPage">
+    <ContentPage.BindingContext>
+
+        <vm:LenguajeViewModel></vm:LenguajeViewModel>
+
+    </ContentPage.BindingContext>
+
+    <chart:SfChart>
+
+        <chart:SfChart.Legend>
+            <chart:ChartLegend />
+        </chart:SfChart.Legend>
+
+        <chart:SfChart.Title>
+            <chart:ChartTitle Text="¿Cuál es tu lenguaje de programación favorito?"/>
+        </chart:SfChart.Title>
+        
+        <chart:SfChart.PrimaryAxis>
+
+            <chart:CategoryAxis>
+
+                <chart:CategoryAxis.Title>
+
+                    <chart:ChartAxisTitle Text="Lenguajes"></chart:ChartAxisTitle>
+
+                </chart:CategoryAxis.Title>
+
+            </chart:CategoryAxis>
+
+        </chart:SfChart.PrimaryAxis>
+
+        <chart:SfChart.SecondaryAxis>
+
+            <chart:NumericalAxis>
+
+                <chart:NumericalAxis.Title>
+
+                    <chart:ChartAxisTitle Text="Votos"></chart:ChartAxisTitle>
+
+                </chart:NumericalAxis.Title>
+
+            </chart:NumericalAxis>
+
+        </chart:SfChart.SecondaryAxis>
+
+        <chart:SfChart.Series>
+
+
+            <chart:ColumnSeries ItemsSource="{Binding Lenguajes2018}" 
+                                Label="2018" 
+                                XBindingPath="Nombre" 
+                                YBindingPath="Votos">
+            </chart:ColumnSeries>
+            
+            <chart:ColumnSeries ItemsSource="{Binding Lenguajes2017}" 
+                                XBindingPath="Nombre" 
+                                StrokeColor="Blue"
+                                Color="Blue"
+                                Label="2017" 
+                                YBindingPath="Votos">
+            </chart:ColumnSeries>
+
+            <chart:ColumnSeries ItemsSource="{Binding Lenguajes2016}" 
+                                XBindingPath="Nombre" 
+                                StrokeColor="Green"
+                                Color="Green"
+                                Label="2016" 
+                                YBindingPath="Votos">
+            </chart:ColumnSeries>
+            
+        </chart:SfChart.Series>
+
+    </chart:SfChart>
+
+</ContentPage>
